@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧁 Azri Délice - Pâtisserie Artisanale
 
-## Getting Started
+> *Des délices qui font sourire vos papilles*
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-38B2AC?style=flat-square&logo=tailwind-css)
+
+## ✨ Présentation
+
+**Azri Délice** est une landing page e-commerce moderne et élégante pour une pâtisserie artisanale. Le design met en avant une expérience utilisateur chaleureuse et gourmande avec une mascotte adorable.
+
+### 🎨 Caractéristiques Design
+
+- **Design Premium** : Palette de couleurs pâtisserie (rose, crème, caramel)
+- **Mascotte Kawaii** : Un petit chef pâtissier animé et mignon
+- **Animations Fluides** : Float, sparkle, bounce et transitions élégantes
+- **Glassmorphism** : Effets de verre modernes sur les cartes
+- **Responsive** : Adapté à tous les écrans
+
+### 🚀 Sections
+
+1. **Header** - Navigation avec logo mascotte et menu responsive
+2. **Hero** - Section d'accueil impactante avec statistiques
+3. **Features** - Caractéristiques clés (livraison, fraîcheur, qualité)
+4. **Products** - Grille de produits avec animations hover
+5. **Categories** - Exploration des univers gourmands
+6. **About** - Histoire et valeurs de la marque
+7. **Testimonials** - Carousel d'avis clients
+8. **Newsletter** - Inscription avec design gradient
+9. **Footer** - Informations complètes et liens
+
+## 🛠 Technologies
+
+- **Next.js 15** - Framework React moderne
+- **TypeScript** - Typage statique
+- **Tailwind CSS 4** - Styling utility-first
+- **React Hooks** - Gestion d'état
+
+## 🚦 Démarrage
 
 ```bash
+# Installer les dépendances
+npm install
+
+# Lancer en développement
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Construire pour la production
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrir [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── globals.css      # Styles globaux
+│   ├── layout.tsx       # Layout racine
+│   └── page.tsx         # Page d'accueil
+└── components/
+    ├── Mascot.tsx       # Mascotte SVG animée
+    ├── Header.tsx       # Navigation
+    ├── Hero.tsx         # Section hero
+    ├── Features.tsx     # Caractéristiques
+    ├── Products.tsx     # Grille de produits
+    ├── Categories.tsx   # Catégories
+    ├── About.tsx        # À propos
+    ├── Testimonials.tsx # Témoignages
+    ├── Newsletter.tsx   # Newsletter
+    └── Footer.tsx       # Pied de page
+```
 
-## Learn More
+## 🎯 Prochaines étapes
 
-To learn more about Next.js, take a look at the following resources:
+- [ ] Intégration panier e-commerce
+- [ ] Pages produits détaillées
+- [ ] Système de paiement
+- [ ] Authentification utilisateur
+- [ ] Back-end avec base de données
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Fait avec ❤️ et beaucoup de sucre
