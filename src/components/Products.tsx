@@ -27,7 +27,7 @@ const CATEGORIES = [
 ];
 
 // Filtres allergènes/régimes
-const DIETARY_FILTERS = [
+const DIETARY_FILTERS: Array<{ id: "all" | DietaryType; name: string; icon: React.ReactNode }> = [
     { id: "all", name: "Tout", icon: null },
     { id: "no-gluten", name: "Sans Gluten", icon: <Wheat className="w-4 h-4" /> },
     { id: "no-lactose", name: "Sans Lactose", icon: <Milk className="w-4 h-4" /> },
@@ -52,7 +52,7 @@ const PRODUCTS: Product[] = [
 
 export default function Shop() {
     const [activeCategory, setActiveCategory] = useState("all");
-    const [activeDietary, setActiveDietary] = useState("all");
+    const [activeDietary, setActiveDietary] = useState<"all" | DietaryType>("all");
     const [flavorFilter, setFlavorFilter] = useState<number[] | null>(null);
     const { openCart, totalItems } = useCart();
 
