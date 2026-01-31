@@ -73,7 +73,7 @@ export default function Cart() {
                         </div>
 
                         {/* Items */}
-                        <div className="flex-1 overflow-y-auto p-6">
+                        <div className="flex-1 overflow-y-auto p-6 min-h-0">
                             {items.length === 0 ? (
                                 <div className="h-full flex flex-col items-center justify-center text-center text-gray-400">
                                     <ShoppingBag className="w-16 h-16 mb-4 opacity-30" />
@@ -81,7 +81,7 @@ export default function Cart() {
                                     <p className="text-sm">Ajoutez des délices pour commencer !</p>
                                 </div>
                             ) : (
-                                <div className="space-y-4">
+                                <div className="space-y-3">
                                     {items.map((item) => (
                                         <motion.div
                                             key={item.id}
@@ -89,10 +89,10 @@ export default function Cart() {
                                             initial={{ opacity: 0, y: 20 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, x: 100 }}
-                                            className="flex gap-4 bg-gray-50 rounded-2xl p-4"
+                                            className="flex gap-3 bg-gray-50 rounded-xl p-3"
                                         >
                                             {/* Image */}
-                                            <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
+                                            <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
                                                 <img
                                                     src={item.image}
                                                     alt={item.name}
@@ -102,34 +102,34 @@ export default function Cart() {
 
                                             {/* Info */}
                                             <div className="flex-1 min-w-0">
-                                                <h3 className="font-bold text-[var(--ink)] truncate">{item.name}</h3>
-                                                <p className="text-[var(--primary)] font-bold mt-1">
+                                                <h3 className="font-bold text-sm text-[var(--ink)] truncate">{item.name}</h3>
+                                                <p className="text-[var(--primary)] font-bold text-sm">
                                                     {item.price.toLocaleString('fr-FR')} FCFA
                                                 </p>
 
                                                 {/* Quantity Controls */}
-                                                <div className="flex items-center justify-between mt-3">
-                                                    <div className="flex items-center gap-2 bg-white rounded-full p-1 shadow-sm">
+                                                <div className="flex items-center justify-between mt-2">
+                                                    <div className="flex items-center gap-1.5 bg-white rounded-full p-0.5 shadow-sm">
                                                         <button
                                                             onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                                                            className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200"
+                                                            className="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200"
                                                         >
-                                                            <Minus className="w-4 h-4" />
+                                                            <Minus className="w-3.5 h-3.5" />
                                                         </button>
-                                                        <span className="w-8 text-center font-bold">{item.quantity}</span>
+                                                        <span className="w-7 text-center font-bold text-sm">{item.quantity}</span>
                                                         <button
                                                             onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                                            className="w-8 h-8 rounded-full bg-[var(--primary)] text-white flex items-center justify-center hover:bg-[var(--primary-light)]"
+                                                            className="w-7 h-7 rounded-full bg-[var(--primary)] text-white flex items-center justify-center hover:bg-[var(--primary-light)]"
                                                         >
-                                                            <Plus className="w-4 h-4" />
+                                                            <Plus className="w-3.5 h-3.5" />
                                                         </button>
                                                     </div>
 
                                                     <button
                                                         onClick={() => removeItem(item.id)}
-                                                        className="w-8 h-8 rounded-full bg-red-100 text-red-500 flex items-center justify-center hover:bg-red-200"
+                                                        className="w-7 h-7 rounded-full bg-red-100 text-red-500 flex items-center justify-center hover:bg-red-200"
                                                     >
-                                                        <Trash2 className="w-4 h-4" />
+                                                        <Trash2 className="w-3.5 h-3.5" />
                                                     </button>
                                                 </div>
                                             </div>
@@ -141,56 +141,46 @@ export default function Cart() {
 
                         {/* Footer avec Formulaire */}
                         {items.length > 0 && (
-                            <div className="border-t p-6 space-y-4 bg-gray-50">
-                                {/* Totaux */}
-                                <div className="flex justify-between items-center">
-                                    <span className="text-gray-500">Sous-total</span>
-                                    <span className="font-bold text-lg">{totalPrice.toLocaleString('fr-FR')} FCFA</span>
-                                </div>
-
-                                <div className="flex justify-between items-center text-sm text-gray-400">
-                                    <span>Livraison</span>
-                                    <span>À vos frais</span>
-                                </div>
-
-                                <div className="flex justify-between items-center pt-4 border-t border-gray-200">
-                                    <span className="font-bold text-lg">Total</span>
-                                    <span className="font-display text-2xl text-[var(--primary)]">
+                            <div className="border-t p-4 space-y-3 bg-gray-50 max-h-[50vh] overflow-y-auto">
+                                {/* Total simplifié */}
+                                <div className="flex justify-between items-center pb-3 border-b border-gray-200">
+                                    <span className="font-bold">Total</span>
+                                    <span className="font-display text-xl text-[var(--primary)]">
                                         {totalPrice.toLocaleString('fr-FR')} FCFA
                                     </span>
                                 </div>
 
                                 {/* Formulaire de Livraison */}
-                                <div className="pt-4 space-y-3">
-                                    <p className="text-sm font-bold text-gray-600">Informations de livraison</p>
+                                <div className="space-y-2.5">
+                                    <p className="text-xs font-bold text-gray-600">Informations de livraison</p>
 
                                     {/* Téléphone */}
                                     <div className="relative">
-                                        <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                                         <input
                                             type="tel"
                                             value={phone}
                                             onChange={(e) => setPhone(e.target.value)}
                                             placeholder="Numéro de téléphone"
-                                            className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20 outline-none transition-all"
+                                            className="w-full pl-10 pr-3 py-2.5 text-sm rounded-lg border border-gray-200 focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20 outline-none transition-all"
                                         />
                                     </div>
 
                                     {/* Adresse */}
                                     <div className="relative">
-                                        <MapPin className="absolute left-4 top-4 w-5 h-5 text-gray-400" />
+                                        <MapPin className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
                                         <textarea
                                             value={address}
                                             onChange={(e) => setAddress(e.target.value)}
-                                            placeholder="Adresse de livraison (quartier, repère...)"
+                                            placeholder="Adresse de livraison"
                                             rows={2}
-                                            className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20 outline-none transition-all resize-none"
+                                            className="w-full pl-10 pr-3 py-2.5 text-sm rounded-lg border border-gray-200 focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20 outline-none transition-all resize-none"
                                         />
                                     </div>
                                 </div>
 
                                 {/* Actions */}
-                                <div className="space-y-3 pt-4">
+                                <div className="space-y-2 pt-2">
                                     <a
                                         href={canOrder ? `https://wa.me/237691037693?text=${generateWhatsAppMessage()}` : "#"}
                                         target={canOrder ? "_blank" : undefined}
@@ -201,24 +191,24 @@ export default function Cart() {
                                                 alert("Veuillez renseigner votre téléphone et votre adresse de livraison.");
                                             }
                                         }}
-                                        className={`w-full py-4 rounded-full font-bold text-center flex items-center justify-center gap-3 transition-all shadow-lg ${canOrder
+                                        className={`w-full py-3.5 rounded-full font-bold text-sm text-center flex items-center justify-center gap-2 transition-all shadow-lg ${canOrder
                                                 ? 'bg-green-500 text-white hover:bg-green-600 shadow-green-500/30'
                                                 : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                                             }`}
                                     >
-                                        <MessageCircle className="w-5 h-5" />
+                                        <MessageCircle className="w-4 h-4" />
                                         Commander via WhatsApp
                                     </a>
 
                                     {!canOrder && (
                                         <p className="text-xs text-center text-gray-400">
-                                            Remplissez le téléphone et l'adresse pour commander
+                                            Renseignez vos infos pour commander
                                         </p>
                                     )}
 
                                     <button
                                         onClick={clearCart}
-                                        className="w-full py-3 text-gray-500 text-sm hover:text-red-500 transition-colors"
+                                        className="w-full py-2 text-gray-500 text-xs hover:text-red-500 transition-colors"
                                     >
                                         Vider le panier
                                     </button>

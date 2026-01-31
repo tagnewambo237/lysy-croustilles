@@ -194,7 +194,7 @@ export default function Hero() {
             </motion.div>
 
             {/* Scroll Indicator Créatif */}
-            <motion.div
+            {/* <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 3.2 }}
@@ -214,7 +214,7 @@ export default function Hero() {
                         />
                     </div>
                 </motion.div>
-            </motion.div>
+            </motion.div> */}
         </section>
     );
 }

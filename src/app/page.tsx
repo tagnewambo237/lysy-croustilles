@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import Marquee from "../components/Marquee";
 import Shop from "../components/Products";
 import WhyChooseUs from "../components/WhyChooseUs";
+import SubscriptionSection from "../components/SubscriptionSection";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <Marquee />
         <Shop />
         <WhyChooseUs />
+        <SubscriptionSection />
         <InfoSection />
       </main>
     </div>
