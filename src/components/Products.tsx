@@ -7,6 +7,19 @@ import { useCart } from "../context/CartContext";
 import FlavorWheel from "./FlavorWheel";
 import SocialProof from "./SocialProof";
 
+type DietaryType = "no-gluten" | "no-lactose" | "vegan";
+
+interface Product {
+    id: number;
+    name: string;
+    desc: string;
+    price: number;
+    category: string;
+    dietary: DietaryType[];
+    image: string;
+    tag?: string;
+}
+
 const CATEGORIES = [
     { id: "all", name: "Tout", emoji: "🍽️" },
     { id: "crepes", name: "Crêpes", emoji: "🥞" },
@@ -21,7 +34,7 @@ const DIETARY_FILTERS = [
     { id: "vegan", name: "Végétalien", icon: <Leaf className="w-4 h-4" /> },
 ];
 
-const PRODUCTS = [
+const PRODUCTS: Product[] = [
     // === CRÊPES ===
     { id: 1, name: "Crêpe Simple", desc: "Nature, légère et moelleuse", price: 100, category: "crepes", dietary: ["no-lactose"], image: "https://images.unsplash.com/photo-1519676867240-f03562e64548?w=600" },
     { id: 2, name: "Crêpe Marbrée", desc: "Bicolore vanille & chocolat", price: 150, category: "crepes", dietary: [], image: "https://images.unsplash.com/photo-1575487426162-d278065d6c93?w=600" },
@@ -205,7 +218,7 @@ export default function Shop() {
     );
 }
 
-function ProductCard({ product, index }: { product: any; index: number }) {
+function ProductCard({ product, index }: { product: Product; index: number }) {
     const { addItem, items } = useCart();
     const [justAdded, setJustAdded] = useState(false);
 
